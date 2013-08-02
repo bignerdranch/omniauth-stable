@@ -10,8 +10,8 @@ module OmniAuth
       # initializing your consumer from the OAuth gem.
       option :client_options, {
         site:           "https://stable.bignerdranch.com",
-        authorize_url:  "oauth/authorize",
-        token_url:      "oauth/token"
+        authorize_url:  "https://stable.bignerdranch.com/oauth/authorize",
+        token_url:      "https://stable.bignerdranch.com/oauth/token"
       }
 
       uid { raw_info["id"] }
