@@ -26,6 +26,14 @@ module OmniAuth
       def raw_info
         @raw_info ||= access_token.get('/users/me.json').parsed
       end
+
+      def email
+        (raw_info['email'].nil? || raw_info['email'].empty?) ? '' : raw_info['email']
+      end
+
+      def full_name
+        (raw_info['full_name'].nil? || raw_info['full_name'].empty?) ? '' : raw_info['full_name']
+      end
     end
   end
 end
