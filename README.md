@@ -12,7 +12,7 @@ In your `Gemfile`:
 
 Then add an in our Omniauth initializer add:
 
-    Rails.application.config.middleware.use OmniAuth::Builder
+    Rails.application.config.middleware.use OmniAuth::Builder do
       provider :stable, ENV['STABLE_KEY'], ENV['STABLE_SECRET']
     end
 
