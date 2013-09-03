@@ -20,11 +20,11 @@ describe OmniAuth::Strategies::Stable do
     end
 
     it 'have the correct authorize url' do
-      expect(client_options.authorize_url).to eq('https://stable.bignerdranch.com/oauth/authorize')
+      expect(client_options.authorize_url).to eq('/oauth/authorize')
     end
 
     it 'have  the correct token url' do
-      expect(client_options.token_url).to eq('https://stable.bignerdranch.com/oauth/token')
+      expect(client_options.token_url).to eq('/oauth/token')
     end
   end
 
