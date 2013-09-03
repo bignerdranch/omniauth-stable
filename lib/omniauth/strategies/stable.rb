@@ -5,7 +5,6 @@ module OmniAuth
     class Stable < OmniAuth::Strategies::OAuth2
       DEFAULT_ENDPOINT = "https://stable.bignerdranch.com"
       option :name, "stable"
-      option :endpoint, DEFAULT_ENDPOINT
 
       # This is where you pass the options you would pass when
       # initializing your consumer from the OAuth gem.
