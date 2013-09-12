@@ -58,4 +58,19 @@ describe OmniAuth::Strategies::Stable do
       expect(strategy.full_name).to eq('')
     end
   end
+
+  context "environment" do
+    before do
+      # Can't stub super, so manually redefine
+      class OmniAuth::Strategies::OAuth2
+        def call(env); nil; end
+      end
+    end
+
+    it 'sets stable.strategy when run as middleware' do
+      env = {}
+      strategy.call(env)
+      expect(env['stable.strategy']).to eq(strategy)
+    end
+  end
 end
