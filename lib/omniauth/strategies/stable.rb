@@ -23,6 +23,11 @@ module OmniAuth
         }
       end
 
+      def call env
+        env['stable.strategy'] = self
+        super
+      end
+
       def raw_info
         @raw_info ||= access_token.get('/users/me.json').parsed
       end
