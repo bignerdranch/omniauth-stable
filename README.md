@@ -10,7 +10,7 @@ In your `Gemfile`:
 
     gem 'omniauth-stable', github: 'bignerdranch/omniauth-stable'
 
-Then add an in our Omniauth initializer add:
+Then in your OmniAuth initializer add:
 
     Rails.application.config.middleware.use OmniAuth::Builder do
       provider :stable, ENV['STABLE_KEY'], ENV['STABLE_SECRET']
