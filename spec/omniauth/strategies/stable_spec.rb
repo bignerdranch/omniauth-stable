@@ -2,13 +2,13 @@ require 'spec_helper'
 
 describe OmniAuth::Strategies::Stable do
   let(:access_token) { double('AccessToken', options: {}) }
-  let(:parsed_response) { stub('ParsedResponse') }
-  let(:response) { stub('Response', parsed: parsed_response) }
+  let(:parsed_response) { double('ParsedResponse') }
+  let(:response) { double('Response', parsed: parsed_response) }
 
   subject(:strategy) { described_class.new({}) }
 
   before do
-    strategy.stub(:access_token) { access_token }
+    allow(strategy).to receive(:access_token) { access_token }
   end
 
   context "client options" do
@@ -37,24 +37,24 @@ describe OmniAuth::Strategies::Stable do
 
   context "#email" do
     it 'returns email from raw_info if available' do
-      strategy.stub(:raw_info) { { 'email'  => 'email@example.com' } }
+      allow(strategy).to receive(:raw_info) { { 'email'  => 'email@example.com' } }
       expect(strategy.email).to eq('email@example.com')
     end
 
     it 'returns a blank string when there is no email in the raw_info' do
-      strategy.stub(:raw_info) { {} }
+      allow(strategy).to receive(:raw_info) { {} }
       expect(strategy.email).to eq('')
     end
   end
 
   context "#full_name" do
     it 'returns full_name from raw_info if available' do
-      strategy.stub(:raw_info) { { 'full_name'  => 'Taco Man' } }
+      allow(strategy).to receive(:raw_info) { { 'full_name'  => 'Taco Man' } }
       expect(strategy.full_name).to eq('Taco Man')
     end
 
     it 'returns a blank string when there is no full_name in the raw_info' do
-      strategy.stub(:raw_info) { {} }
+      allow(strategy).to receive(:raw_info) { {} }
       expect(strategy.full_name).to eq('')
     end
   end
